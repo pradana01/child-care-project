@@ -1,10 +1,55 @@
 # child-care-project
 Child Care project development
 
+Goal:
+1. Buat website
+2. Buat Mobile App
+
 Fitur:
 1. Auth
-- SignUP
+
+note : (add two step verification)
+
+- SignUP (Parents)
+-------------
+Form (signUP)
+1. Username (verifikasi username)
+2. Email (verifikasi email)
+3. Password (verifikasi password)
+4. full name (validation)
+5. DOB (validation)
+6. Sex (No need validation)
+7. Kelurahan (validation)
+8. Kode Pos (validation)
+9. Alamat (validation)
+10. Pin point (lat, lon (-6.263422, 106.884558)) (no need validation)
+11. Phone (verifikasi phone number)
+12. Alternate email (no need validation)
+
+- Pada saat dia register, aplikasi akan mencari email yang didaftarkan pada database, jika email yang di input sudah ada, maka user harus mengganti emailnya dengan email lain
+- Verifikasi username apakah sudah digunakan atau belum
+- Verifikasi Phone number apakah sudah digunakan atau belum
+- Pada saat dia selesai mendaftarkan dirinya, kita kasih verifikasi email
+- Setelah dia verifikasi email, dia akan masuk ke page "Thank you for verifying you email => (text: "Klik here to enter website or wait (show how many seconds left to redirect))
+- Setelah sign up, dia tidak perlu login dahulu untuk masuk ke web
+
 - SignIN
+-----------
+Form Signin (Parents)
+1. Email/Username 
+2. Password
+
+
+3. Button Lupa password
+- Dia akan redirect ke halaman yang isinya form untuk mengisi email
+- Kemudian dia akan verifikasi emailnya
+- Direct to change password page
+- redirect to login
+
+
+-access_token
+-redirect to home
+
 - Social Media SignUP
 
 2.
@@ -15,7 +60,7 @@ Visi:
 - Menjadi aplikasi terdepan dalam bidang parenting
 
 Misi:
-- Memudahkan orang tua untuk mendapatkan layanan daycare dan nursing anak=
+- Memudahkan orang tua untuk mendapatkan layanan daycare dan nursing anak
 
 Goal:
 1. Membuat Aplikasi mobile yang memiliki fitur pencarian daycare, agensi nursery dan independent nurse
