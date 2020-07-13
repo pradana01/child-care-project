@@ -25,6 +25,7 @@ Form (signUP)
 10. Pin point (lat, lon (-6.263422, 106.884558)) (no need validation)
 11. Phone (verifikasi phone number)
 12. Alternate email (no need validation)
+13. Image (no need validation)
 
 - Pada saat dia register, aplikasi akan mencari email yang didaftarkan pada database, jika email yang di input sudah ada, maka user harus mengganti emailnya dengan email lain
 - Verifikasi username apakah sudah digunakan atau belum
