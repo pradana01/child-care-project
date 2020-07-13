@@ -1,13 +1,21 @@
 # child-care-project
 Child Care project development
 
+Fitur:
+1. Auth
+- SignUP
+- SignIN
+- Social Media SignUP
+
+2.
+
 Brain Storm
 
 Visi:
 - Menjadi aplikasi terdepan dalam bidang parenting
 
 Misi:
-- Memudahkan orang tua untuk mendapatkan layanan daycare dan nursing anak
+- Memudahkan orang tua untuk mendapatkan layanan daycare dan nursing anak=
 
 Goal:
 1. Membuat Aplikasi mobile yang memiliki fitur pencarian daycare, agensi nursery dan independent nurse
@@ -125,4 +133,3 @@ Kebutuhan:
 16. Data Scientist
 17. Graphic Designer
 18. Content Maker
-19. 
