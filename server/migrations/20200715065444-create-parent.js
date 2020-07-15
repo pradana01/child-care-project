@@ -8,29 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userName: {
+      username: {
         type: Sequelize.STRING
       },
-      email: {
+      fullname: {
         type: Sequelize.STRING
       },
       password: {
         type: Sequelize.STRING
       },
-      fullName: {
-        type: Sequelize.STRING
-      },
-      dob: {
-        type: Sequelize.DATE
-      },
-      sex: {
+      emailVerified: {
         type: Sequelize.STRING
       },
       kelurahan: {
         type: Sequelize.STRING
       },
       kodePos: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       alamat: {
         type: Sequelize.STRING
@@ -45,6 +39,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       image: {
+        type: Sequelize.STRING
+      },
+      dob: {
+        type: Sequelize.DATE
+      },
+      sex: {
+        type: Sequelize.STRING
+      },
+      email: {
         type: Sequelize.STRING
       },
       createdAt: {

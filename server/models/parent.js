@@ -14,16 +14,16 @@ module.exports = (sequelize, DataTypes) => {
   }
   Parent.init(
     {
-      userName: {
+      username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: { msg: "User name required" },
-          notNull: { msg: "User name required" },
-          duplicateUserName(value) {
+          notEmpty: { msg: "Usen name required" },
+          notNull: { msg: "Usen name required" },
+          duplicateUserrName(value) {
             return Parent.findOne({
               where: {
-                userName: value,
+                username: value,
               },
             }).then((data) => {
               if (data) {
@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
           notNull: { msg: "Password required" },
         },
       },
-      fullName: {
+      fullname: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -95,7 +95,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       kodePos: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: { msg: "Kode pos required" },
@@ -126,7 +126,7 @@ module.exports = (sequelize, DataTypes) => {
               if (data) {
                 throw new Error("This phone number is taken, try another one");
               } else if (value.length < 10) {
-                throw new Error("Phone number should have 10 characters");
+                throw new Error("Please input a valid phone number");
               }
             });
           },
