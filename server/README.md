@@ -179,3 +179,28 @@ Kebutuhan:
 16. Data Scientist
 17. Graphic Designer
 18. Content Maker
+
+
+
+Agency
+======
+ API:
+ 1. Login
+ 2. Register
+ 
+ Models:
+ 1. username
+ 2. password
+ 3. email
+ 4. description
+ 5. alamat
+ 6. city
+ 7. kodePos
+ 8. open since (created at (date)) 
+
+ 3. Show all nany ()
+ 4. Add Nany
+ 5. Delete Nany
+ 6. Update Nany
+ 7. Update Agency credential
+ 8. Update Agency biograph
