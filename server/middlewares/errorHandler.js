@@ -52,6 +52,10 @@ function errorHandler(err,req,res, next){
     statusCode = 400
     errorCode = 'VALIDATION_ERROR'
     message = "This product stock is insufficient for the amount you have set, you might want to decrease the amount of the product in you cart first"
+  } else if(err.name === "EMAIL_VALIDATION_ERROR") {
+    statusCode = 400
+    errorCode = 'EMAIL_VALIDATION_ERROR'
+    message = "You haven't validate your email yet"
   }
 
   res.status(statusCode).json({

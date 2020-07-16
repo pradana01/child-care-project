@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "airell",
-    "password": "tauhidjannah",
+    "username": "postgres",
+    "password": "123456",
     "database": "child-care-sukses",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
