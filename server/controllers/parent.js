@@ -4,14 +4,14 @@ class ParentController {
   static parentRegister(req, res, next) {
     let parent = "";
     const {
-      userName,
+      username,
       image,
       email,
       dob,
       kelurahan,
       alamat,
       pinPoint,
-      fullName,
+      fullname,
       password,
       kodePos,
       alternateEmail,
@@ -19,14 +19,14 @@ class ParentController {
       phone,
     } = req.body;
     Parent.create({
-      userName,
+      username,
       image,
       email,
       dob,
       kelurahan,
       alamat,
       pinPoint,
-      fullName,
+      fullname,
       password,
       kodePos,
       alternateEmail,
@@ -35,7 +35,7 @@ class ParentController {
     })
       .then((data) => {
         // res.status(201).json(parent);
-        let parent = data;
+       parent = data;
         return axios({
           url: "https://childcare-0c99.restdb.io/mail",
           method: "post",
@@ -47,7 +47,7 @@ class ParentController {
           data: {
             // 'to': `${req.userData.email}`,
             to: parent.email,
-            subject: `Hai ${fullName}`,
+            subject: `Hai ${fullname}`,
             html: `
                     <h1 style="text-align: center;">Here it is!</h1>
                     <div class="card mb-3" style="max-width: 540px; margin-left: auto; margin-right: auto; border: 5px solid royalblue; border-radius:5%;">
@@ -59,10 +59,10 @@ class ParentController {
                             <div class="col-md-8" style="text-align: center;">
                                 <div class="card-body" style="text-align: center;">
                                     <h2 class="card-title">Full Name: ${
-                                      parent.fullName
+                                      parent.fullname
                                     }</h2><hr>
                                     <p class="card-text">User Name: ${
-                                      parent.userName
+                                      parent.username
                                     }</p>
                                     <p class="card-text" style="color:seagreen;">Email: ${
                                       parent.email
@@ -83,7 +83,10 @@ class ParentController {
         });
       })
       .then(() => {
-        res.status(201).json(parent);
+        res.status(201).json({
+          message: "Successfully registered",
+          parent
+        });
       })
       .catch((err) => {
         next(err);
