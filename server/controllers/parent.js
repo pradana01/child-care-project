@@ -1,5 +1,9 @@
 const { Parent } = require("../models");
 const axios = require("axios");
+const { Op } = require('sequelize')
+const compareSync = require('../helper/compareBcrypt')
+const jsonWebToken = require('../helper/jwtUser')
+
 class ParentController {
   static parentRegister(req, res, next) {
     let parent = "";
@@ -91,6 +95,35 @@ class ParentController {
       .catch((err) => {
         next(err);
       });
+  }
+
+  static parentLogin(req, res, next) {
+    const {
+      username,
+      password
+    } = req.body;
+    Parent.findOne({
+      where: {
+        [Op.or]: [
+          { username },
+          { email: username }
+        ]
+      }
+    })
+    .then((data) => {
+      if(!data || !compareSync(password, data.password)) {
+        next({ name: 'LOGIN_VALIDATION_ERROR' })
+      } else if(data.dataValues.emailVerified === false) { // comment line 116 & 117 for login testing without email verification
+        next({ name: 'EMAIL_VALIDATION_ERROR'})
+      } else {
+        console.log(data.dataValues.emailVerified)
+        const access_token = jsonWebToken(data)
+        res.status(200).json({ message: 'Login Successful', access_token })
+      }
+    })
+    .catch((err) => {
+      next(err)
+    })
   }
 }
 
