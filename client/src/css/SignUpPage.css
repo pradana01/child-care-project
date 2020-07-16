@@ -1,0 +1,62 @@
+.SignUp-Container {
+    background-image: url(../assets/child-care-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    color: white;
+}
+
+#Main-Title {
+    font-size: 10vw;
+    background: -webkit-linear-gradient(#FDC830, #F37335);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Title {
+    margin: 0;
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 5% 10%;
+}
+
+label {
+    color: white;
+    margin-bottom: 2%;
+}
+
+#Form-Address {
+    height: 10vh;
+}
+
+.Inputs {
+    padding: 2%;
+    border-style: hidden;
+    border-radius: 10px;
+    height: 5vh;
+    margin-bottom: 5%;
+
+}
+
+.Submit-SignIn {
+    border-style: hidden;
+    border-radius: 20px;
+    height: 10vh;
+    font-size: 10vw;
+    color: white;
+    background-image: linear-gradient(to bottom right, #FDC830, #F37335);
+}
