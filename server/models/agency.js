@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   const bcrypt = require("../helper/hashPass");
-  class Parent extends Model {
+  class Agency extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,16 +12,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Parent.init(
+  Agency.init(
     {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: { msg: "Usen name required" },
-          notNull: { msg: "Usen name required" },
+          notEmpty: { msg: "User name required" },
+          notNull: { msg: "User name required" },
           duplicateUserrName(value) {
-            return Parent.findOne({
+            return Agency.findOne({
               where: {
                 username: value,
               },
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: "Email required" },
           notNull: { msg: "Email required" },
           duplicateEmail(value) {
-            return Parent.findOne({
+            return Agency.findOne({
               where: {
                 email: value,
               },
@@ -74,19 +74,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "Birth date required" },
           notNull: { msg: "Birth date required" },
-          underSixteen(value) {
-            let currentDate = new Date().toDateString().split(" ")[3] * 1;
-            let year = Number(value.toDateString().split(" ")[3]);
-
-            let result = currentDate - year;
-            if (result < 16) {
-              throw new Error("Under 16 years old is not allowed to register");
-            }
-          },
+       
         },
       },
-      sex: DataTypes.STRING,
-      kelurahan: {
+kelurahan: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -118,7 +109,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: "Phone number required" },
           notNull: { msg: "Phone number required" },
           phoneValidation(value) {
-            return Parent.findOne({
+            return Agency.findOne({
               where: {
                 phone: value,
               },
@@ -138,13 +129,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Parent",
+      modelName: "Agency",
     }
   );
-  Parent.beforeCreate((instance, option) => {
+  Agency.beforeCreate((instance, option) => {
     const hash = bcrypt(instance.password);
     instance.password = hash;
     instance.emailVerified = false;
   });
-  return Parent;
+  return Agency;
 };

@@ -13,7 +13,7 @@ function errorHandler(err,req,res, next){
     for(var i = 0; i < err.errors.length; i++){
        arr.push(err.errors[i].message)
     }
-    console.log(arr)
+    
     errorCode = 'VALIDATION_ERROR';
     message = arr
   }else if(err.name == 'DATA_NOT_FOUND'){
@@ -36,22 +36,10 @@ function errorHandler(err,req,res, next){
     statusCode = 400
     errorCode = 'VALIDATION_ERROR'
     message = "Invalid Name/Password"
-  }else if(err.name == 'OWN_PRODUCT'){
-    statusCode = 401
-    errorCode = 'FORBIDDEN'
-    message = "You cant buy your own product"
-  }else if(err.name == "This email is taken. Try another"){
+  }else if(err.name == 'EMAIL_VALIDATION_ERROR' ){
     statusCode = 400
-    errorCode = 'VALIDATION_ERROR'
-    message = "This email is taken. Try another"
-  }else if(err.name == "OUT_OF_STOCK"){
-    statusCode = 400
-    errorCode = 'VALIDATION_ERROR'
-    message = "This product is currently out of stock"
-  }else if(err.name === "INSUFFICIENT_STOCK"){
-    statusCode = 400
-    errorCode = 'VALIDATION_ERROR'
-    message = "This product stock is insufficient for the amount you have set, you might want to decrease the amount of the product in you cart first"
+    errorCode = 'EMAIL_VALIDATION_ERROR'
+    message = "Email has not been verified"
   }
 
   res.status(statusCode).json({

@@ -10,7 +10,7 @@ const authentication = (req, res, next) => {
 
 	try {
 		const decoded = verify(access_token);
-		console.log(decoded);
+		
 		req.userData = decoded;
 
 		next();

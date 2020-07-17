@@ -1,10 +1,10 @@
 
 const jwt = require('jsonwebtoken');
-const SECRETKEY = process.env.SECRETKEY;
+const SECRETKEY = 'mama';
 
 function jsonWebToken(param) {
   
-  const access_token = jwt.sign({ id: param.id, email: param.email}, SECRETKEY);
+  const access_token = jwt.sign({ id: param.id, email: param.email, username:param.username}, SECRETKEY);
 
 	return access_token
 }

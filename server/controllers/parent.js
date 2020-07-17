@@ -1,5 +1,6 @@
 const { Parent } = require("../models");
 const axios = require("axios");
+
 class ParentController {
   static parentRegister(req, res, next) {
     let parent = "";

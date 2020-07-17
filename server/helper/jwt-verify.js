@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRETKEY = process.env.SECRETKEY;
+const SECRETKEY = 'mama';
 
 function jsonWebTokenVerify(param){
   return jwt.verify(param, SECRETKEY);
